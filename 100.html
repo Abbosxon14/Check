@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>001INpGD</title>
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"> -->
+    <style>
+        .A{
+            width: 100%;
+            height: 100vh;
+            margin: 0 auto;
+            background-color: rgb(255, 255, 255);
+        }
+        .AA{
+            width: 1000px;
+            height: 100px;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            margin-top: 50px;
+            background-color: rgb(223, 243, 255);
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            gap: 60px;
+            border-radius: 30px;
+        }
+        .INP1, .INP2, .INP3{
+            
+            width: 150px; 
+            height: 40px;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+        }
+        .INP1{
+            margin-left: 30px;
+        }
+        .AAA{
+            width: 120px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            justify-content: center;
+            align-items: center;
+        }
+        .AAA input{
+            width: 22px;
+            height: 22px;
+            border: none;
+            outline: none;
+        }
+        .BU{
+            width: 100px;
+            height: 40px;
+            border-radius: 20px;
+            background-color: rgb(255, 122, 122);
+            color: rgb(0, 0, 0);
+            border: none;
+            margin-right: 20px;
+        }
+        .BU:hover{
+            background-color: rgb(255, 34, 34);
+            color: rgb(255, 255, 255);
+        }
+        .B{
+            width: 1000px;
+            margin: 0 auto;
+            margin-top: 50px;
+            border-radius: 30px;
+            background-color: rgb(80, 156, 200);
+        }
+        .BB{
+            padding-left: 30px;
+            width: 900px;
+            margin: 0 auto;
+            margin-top: 30px;
+            background-color: rgb(204, 204, 123);
+            border-radius: 30px;
+        }
+        .AAS{
+            background-color: rgb(85, 85, 122);
+            color: rgb(255, 255, 255);
+            border-radius: 5px;
+            margin-left: 50px;
+        }
+        .AAS:hover{
+            background-color: brown;
+        }
+    </style>
+</head>
+<body>
+    <div class="A">
+        <form >
+            <div class="AA">
+                <input type="text" class="INP1" id="INp1" placeholder="Vvedite Imya">
+                <input type="text" class="INP2" id="INp2" placeholder="Vvedite Familiyu">
+                <input type="number" class="INP3" id="INp3" placeholder="Vvedite Vozrast ">
+                <div class="AAA">
+                    <input type="checkbox" id="checked"> <h4>U vas est Semya?</h4>
+                </div>
+                <!-- <button data-clear-selector="input" class="UDL">Udalit</button> -->
+                <button type="submit" class="BU">Dobavit</button>
+            </div>
+        </form>
+        <section class="B">
+            <section class="BB" id="CC">
+        </section>
+    </div>
+    <!-- ////////////////////////////// -->
+    <script>
+        const INP1 = document.querySelector('#INp1'),
+             INP2 = document.querySelector('#INp2'),
+             INP3 = document.querySelector('#INp3'),
+              checkbox = document.querySelector('#checked'),
+              form = document.querySelector('form'),    
+              btn = document.querySelector('button'),
+              chh = document.querySelector('#CC')
+    form.addEventListener('submit', function (FF) {
+        FF.preventDefault()  
+        let DDD = [
+            {
+                IMYA: INP1.value,
+                FAMILIYA: INP2.value,
+                Vozrast: INP3.value,
+                Semya: checkbox.value,
+            },
+            ]
+        if(INP1.value == ''){
+                alert("Vvedite IMYA...");
+        } else{
+                let newDiv = document.createElement('div')
+                newDiv.innerHTML = `<h2 > Imya: ${DDD[0].IMYA}
+                     / Familiya: ${DDD[0].FAMILIYA} / Vozrast: ${DDD[0].Vozrast}
+                      / ${checkbox.checked ? 'Semeyniy' : 'Ne imeet semyi'
+                    } <btn class="AAS" onclick="remove(this)" >O'chirish</btn>`
+            CC.append(newDiv)
+        }
+    })
+        function remove(btn) {
+            btn.closest('div').remove()
+          }
+    </script>
+</body>
+</html>
